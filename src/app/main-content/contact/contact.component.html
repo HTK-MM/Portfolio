@@ -1,0 +1,57 @@
+<div class="container">
+    <h1>{{'contact.h1'|translate}}</h1>
+    <div class="box-1">
+        <p>{{'contact.p1'|translate}}</p>
+        <div class="box-2">
+            <div>
+                <span><img src="../../assets/img/contact/email.png" />E-mail: info&commat;monica-morales.com</span>
+                <span><img src="../../assets/img/contact/phone.png" />&nbsp;Tel: 0160 854 4642</span>
+            </div>
+            <a href="#home"><img src="../../assets/img/contact/Arrow_up.png"></a>
+        </div>
+    </div>
+
+    <form [formGroup]="contactForm" novalidate (submit)="send($event)">
+        <div>
+            <div class="input-feld">
+                <input type="text" placeholder="{{'contact.placeholder1'|translate}}" formControlName="name"
+                    [ngClass]="{ 'is-invalid': hasErrors('name', 'required') || hasErrors('name', 'minlength') }">
+                @if(hasErrors('name', 'required')){
+                <small class="text-danger">{{'contact.required'|translate}}</small>
+                }
+                @if(hasErrors('name', 'minlength')) {
+                <small class="text-danger">{{'contact.minlength5'|translate}}</small>
+                }
+
+                <input type="email" placeholder="{{'contact.placeholder2'|translate}}" formControlName="email" style="margin-top:30px;"x
+                    [ngClass]="{ 'is-invalid': hasErrors('email', 'required') || hasErrors('email', 'email') || hasErrors('email', 'pattern') }">
+                @if(hasErrors('email', 'required')){
+                <small class="text-danger">{{'contact.required'|translate}}</small>
+                }
+                @if(hasErrors('email', 'email')){
+                <small class="text-danger">{{'contact.invalid'|translate}}</small>
+                }
+
+            </div>
+            <div class="input-textarea">
+                <textarea placeholder="{{'contact.placeholder3'|translate}}" id="exampleFormControlTextarea1" rows="10"
+                    formControlName="message"
+                    [ngClass]="{ 'is-invalid': hasErrors('message', 'required') || hasErrors('message', 'minlength')}"> </textarea>
+                @if(hasErrors('message', 'required')) {
+                <small class="text-danger">{{'contact.required'|translate}}</small>
+                }
+                @if(hasErrors('message', 'minlength')) {
+                <small class="text-danger">{{'contact.minlength10'|translate}}</small>
+                }
+            </div>
+        </div>
+        <div class="check-btn">
+            <label><input type="checkbox" formControlName="checkbox" />
+                {{'contact.checkbox1'|translate}} <a>{{'contact.checkbox2'|translate}}</a> {{'contact.checkbox3'|translate}}</label>
+            <button type="submit" [disabled]="contactForm.invalid"
+                [ngClass]="{'disabled' : formStatus == 'INVALID', 'enabled': formStatus == 'VALID'}">{{'contact.btn'|translate}}</button>
+
+        </div>
+    </form>
+
+</div>

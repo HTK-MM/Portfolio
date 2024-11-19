@@ -1,0 +1,233 @@
+header {
+    max-width: 1440px;
+    width: 100%;
+    justify-self: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    font-family: 'RobotoMono';
+    background: linear-gradient(to bottom, rgba(11, 4, 45, 1)0%, rgba(11, 4, 45, 1)60%, rgba(11, 4, 45, 0)100%);
+    z-index: 99;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 95px;
+
+    @media screen and (max-width: 1200px) {        
+        height: 75px;
+    }
+
+    @media screen and (max-width: 900px) {       
+        height: 60px;
+    }
+    
+    @media screen and (max-width: 680px) {
+        justify-content: space-between;
+        flex-flow: row wrap;
+        height: 55px;
+    }
+}
+
+.logo {
+    display: flex;
+    width: 60px;
+    align-self: center;
+    margin-left: 140px;
+
+    @media screen and (max-width: 900px) {
+        margin-right: 10px;
+        margin-left: 40px;
+        width: 40px;
+    }
+}
+
+.menu-icon {
+    filter: invert(41%) sepia(21%) saturate(3878%) hue-rotate(334deg) brightness(96%) contrast(84%);
+    font-weight: 700;
+    width: 40px;
+    display: none;
+
+    &:hover {
+        filter: invert(91%) sepia(54%) saturate(7406%) hue-rotate(81deg) brightness(108%) contrast(98%);
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 680px) {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 40px;
+    }
+}
+
+.container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-right: 50px;
+    width: 95%;
+
+    @media screen and (max-width: 780px) {
+        width: 85%;    
+    }
+
+    @media screen and (max-width: 680px) {
+        width: 100%;
+        height: 0vh;
+
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+        pointer-events: none;
+        transition: all .5s ease;
+
+
+        &--active {
+            height: 40vh;
+            pointer-events: auto;
+            position: absolute;
+            margin: 0;
+            top: 0;
+            right: 0;
+            background-image: linear-gradient(#13074E 100%, #1D0A79 65%);
+            border: 1px solid #1D0A79;
+            transform: translateY(0);
+            transition: all 0.5s ease-in-out;           
+        }
+    }
+
+
+
+    &__ul {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 20px 0 30px;
+
+        @media screen and (max-width:900px) {
+            padding: 0 0 0 0;
+        }
+
+        @media screen and (max-width:680px) {
+            flex-direction: column;
+        }
+
+    }
+
+    &__li {
+        margin: 0 .5em;
+        list-style-type: none;
+
+        @media screen and (max-width:680px) {
+            margin: .5em 0;
+        }
+    }
+
+}
+
+.a-menu {
+    text-decoration: none;
+    color: #E15544;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 0 8px 0 8px;
+
+    &:hover {
+        color: #02F4BF;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width:1000px) {
+        font-size: 18px;
+    }
+}
+
+.change_language {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+
+    a {
+        text-decoration: none;
+        color: #E15544;
+        font-size: 22px;
+        font-weight: 500;
+        padding: 0;
+
+        &:hover {
+            color: #02F4BF;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:1000px) {
+            font-size: 18px;
+        }
+    }
+
+    p {
+        display: flex;
+        color: #E15544;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+
+}
+
+.close-btn {
+    position: absolute;
+    top: 36px;
+    right: 36px;
+    width: 24px;
+    filter: invert(41%) sepia(21%) saturate(3878%) hue-rotate(334deg) brightness(96%) contrast(84%);
+    font-weight: 700;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+
+    &:hover {
+        filter: invert(91%) sepia(54%) saturate(7406%) hue-rotate(81deg) brightness(108%) contrast(98%);
+        cursor: pointer;
+        scale: 1.3;
+    }
+
+}
+
+
+.icon-active {
+    text-decoration: underline #02F4BF;
+    line-height: 26px;
+    color: #02F4BF;
+}
+
+.shadow {
+    position: absolute;
+    max-width: 1440px;
+    width: 100%;
+    justify-self: center;
+    display: flex;
+    top: 0;  
+    height: 95px;
+    width: 100%;
+    background-color: #0B042D;   
+
+    @media screen and (max-width: 1200px) {        
+        height: 75px;
+    }
+
+    @media screen and (max-width: 900px) {       
+        height: 60px;
+    }
+
+    @media screen and (max-width: 680px) {
+        height: 55px;
+        
+    }
+}

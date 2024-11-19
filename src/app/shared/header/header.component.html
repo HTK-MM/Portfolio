@@ -1,0 +1,39 @@
+<header class="header">
+
+    <img class="logo" src="./../assets/img/Logo2-2.png">
+    <img class="menu-icon" src="./../assets/img/menu.png" (click)="showMenu()" />
+
+    <nav class="container" [ngClass]="{'container--active' : active }">
+        @if(active == true){
+        <img src="./../assets/img/close.png" (click)="closeMenu()" class="close-btn" />
+        }
+
+        <div class="container__ul">
+            <li class="container__li"><a class="a-menu" href="#about"
+                    [ngClass]="{'icon-active' : menuOption == 'Why me' }"
+                    (click)="onOption('Why me')">{{'header.nav1'|translate}}</a>
+            </li>
+            <li class="container__li"><a class="a-menu" href="#skills"
+                    [ngClass]="{'icon-active' : menuOption  == 'Skills' }"
+                    (click)="onOption('Skills')">{{'header.nav2'|translate}}</a></li>
+            <li class="container__li"><a class="a-menu" href="#projects"
+                    [ngClass]="{'icon-active' : menuOption == 'Projects' }"
+                    (click)="onOption('Projects')">{{'header.nav3'|translate}}</a>
+            </li>
+            <li class="container__li"><a class="a-menu" href="#contact"
+                    [ngClass]="{'icon-active' : menuOption == 'Contact' }"
+                    (click)="onOption('Contact')">{{'header.nav4'|translate}}</a>
+            </li>
+        </div>
+
+
+        <div class="change_language">
+            <li class="container__li"><a (click)="changeLanguage('de')">DE</a></li>
+            <p>|</p>
+            <li class="container__li"><a (click)="changeLanguage('en')">EN</a></li>
+        </div>
+    </nav>
+
+</header>
+<div class="shadow">
+</div>
