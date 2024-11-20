@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
 /** * Initializes the component by setting the default language for translation.
  * It retrieves the language from localStorage, defaulting to 'de' if not found,
  * and applies it using the TranslateService. */
-  ngOnInit(): void {
+  ngOnInit(): void { 
     const defaultLanguage = localStorage.getItem('language') || 'de';
     this.translateService.setDefaultLang(defaultLanguage);
     this.translateService.use(defaultLanguage);
@@ -42,7 +42,8 @@ export class AppComponent implements OnInit {
     this.translateService.use(language);
   }
   navigate(route: string) {    
-    this._router.navigate(['/' + route]);
+    console.log('mi route', route);
+    this._router.navigate(['/' + route]);    
   }
 
 }

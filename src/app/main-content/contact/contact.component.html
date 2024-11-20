@@ -28,7 +28,7 @@
                 @if(hasErrors('email', 'required')){
                 <small class="text-danger">{{'contact.required'|translate}}</small>
                 }
-                @if(hasErrors('email', 'email')){
+                @if(hasErrors('email', 'pattern')){
                 <small class="text-danger">{{'contact.invalid'|translate}}</small>
                 }
 
@@ -47,11 +47,10 @@
         </div>
         <div class="check-btn">
             <label><input type="checkbox" formControlName="checkbox" />
-                {{'contact.checkbox1'|translate}} <a>{{'contact.checkbox2'|translate}}</a> {{'contact.checkbox3'|translate}}</label>
+                {{'contact.checkbox1'|translate}} <a (click)="goToPrivacy('privacypolicy')">{{'contact.checkbox2'|translate}}</a> {{'contact.checkbox3'|translate}}</label>
             <button type="submit" [disabled]="contactForm.invalid"
                 [ngClass]="{'disabled' : formStatus == 'INVALID', 'enabled': formStatus == 'VALID'}">{{'contact.btn'|translate}}</button>
 
         </div>
     </form>
-
 </div>

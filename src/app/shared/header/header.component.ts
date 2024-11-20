@@ -1,6 +1,8 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+import { MenuService } from '../../menu.service';
 
 
 
@@ -16,13 +18,26 @@ export class HeaderComponent implements OnInit {
   active: boolean = false;
   menuOption: string = '';
   language: string = 'de';
+  private menuResetSubscription?: Subscription;
+  
+
+  constructor(private menuService: MenuService) {}
 
   /**   * Called when the component is initialized.
    * Updates the active section of the navigation menu.   */
-  ngOnInit(): void {
+  ngOnInit(): void {    
+    this.menuResetSubscription = this.menuService.resetMenu$.subscribe(() => {
+      this.menuOption = '';  // Restablece la opción activa cuando el servicio lo indique
+    });
     this.updateActiveSection();
   }
 
+  ngOnDestroy() {
+    // Limpiar la suscripción cuando el componente se destruya
+    if (this.menuResetSubscription) {
+      this.menuResetSubscription.unsubscribe();
+    }
+  }
   /**   * Sets the active section of the navigation menu to the given section.
    * If the mobile menu is currently open, it will be closed.
    * @param menuOption The section to set as active.   */
@@ -68,12 +83,13 @@ export class HeaderComponent implements OnInit {
 
   /**    * Scrolls to the section with the given name.
    * @param menuOption The name of the section to scroll to.    */
-  scrollToSection(menuOption: string) {
+  scrollToSection(menuOption: string) {   
     const element = document.getElementById(menuOption.toLowerCase().replace(/\s+/g, ''));
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
+ 
   /** * Toggles the visibility of the mobile menu. If the menu is currently open,
    * it will be closed, and vice versa. Logs the current state of the menu
    * (open or closed) to the console.   */

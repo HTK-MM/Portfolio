@@ -1,9 +1,12 @@
 .container {
+    max-width: 1440px;
+    width: 100%;
+    justify-self: center;
     display: flex;
     flex-direction: column;
     padding: 100px 100px 50px 100px;
     gap: 30px;
-    background: linear-gradient(0deg, rgba(36, 16, 133, 1) 0%, rgba(11, 4, 47, 1) 100%);
+    
 
     @media screen and (max-width: 1200px) {
         padding: 100px 70px 0 70px;
@@ -327,6 +330,14 @@ form {
             padding-left: 0;
             align-self: center;
             align-items: center;
+        }
+
+        >a{
+            color: #E15544;
+
+            &:hover {
+                cursor: pointer;              
+            }
         }
     }
 

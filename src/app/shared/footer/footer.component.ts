@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { MenuService } from '../../menu.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,6 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
+  constructor(private menuService: MenuService) {}
 
   @Output() sendRoute = new EventEmitter<string>();
 
@@ -17,5 +19,11 @@ export class FooterComponent {
   sendLink(route: string) {
     console.log('mi route', route);
     this.sendRoute.emit(route);
+    this.onLinkClick();
   }
+
+  onLinkClick(){
+    this.menuService.resetMenu();
+  }
+
 }

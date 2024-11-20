@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateModule } from '@ngx-translate/core';
 import { DialogConfEmailComponent } from '../../dialog-conf-email/dialog-conf-email.component';
+import { Router } from '@angular/router';
+import { MenuService } from '../../menu.service';
 
 
 
@@ -18,15 +20,19 @@ import { DialogConfEmailComponent } from '../../dialog-conf-email/dialog-conf-em
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent implements OnInit {
-
+  private _router = inject(Router);
   http = inject(HttpClient);
 
   contactForm!: FormGroup;
   formStatus: string = 'INVALID';
-  /**   * Builds the contact form group with its validators and sets the
-   * formStatus to the form's status.
-   * @param formBuilder The form builder   */
-  constructor(private formBuilder: FormBuilder, public dialog?: MatDialog) {
+  
+  /**
+   * Initializes the contact form component.
+   * @param formBuilder The form builder used to create the contact form.
+   * @param dialog The dialog service used to open the confirmation dialog.
+   * @param menuService The menu service used to reset the menu.
+   */
+  constructor(private formBuilder: FormBuilder, public dialog?: MatDialog, private menuService?: MenuService) {
 
     this.contactForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
@@ -43,8 +49,6 @@ export class ContactComponent implements OnInit {
     )
 
   }
-
-
   post = {
     endPoint: 'https://monica-morales.com/sendMail.php',
     body: (payload: any) => JSON.stringify(payload),
@@ -63,7 +67,7 @@ export class ContactComponent implements OnInit {
    * provides a completion message when the request is finished. *
    * @param event The event triggered by form submission. */
   send(event: Event) {
-    event.preventDefault();   
+    event.preventDefault();
     this.http.post(this.post.endPoint, this.post.body(this.contactForm.value))
       .subscribe({
         next: (response) => {
@@ -93,4 +97,14 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+  goToPrivacy(route: string) {
+    this._router.navigate(['/' + route]);
+    this.onLinkClick();
+  }
+
+  onLinkClick() {
+    this.menuService?.resetMenu();
+  }
+
 }

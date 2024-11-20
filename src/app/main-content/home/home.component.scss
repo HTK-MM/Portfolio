@@ -1,11 +1,13 @@
 .container {
+    max-width: 1440px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap-reverse;
-    justify-content: space-between;
+    justify-content: space-between;      
+    justify-self: center;
     padding: 95px 100px 0 100px;
-    margin-top: -85px;
-    background: linear-gradient(0deg, rgba(11, 4, 47, 1) 0%, rgba(11, 4, 45, 1) 100%);
+    margin-top: -85px;   
     height: 550px;
 
     @media screen and (max-width: 1200px) {
@@ -25,8 +27,6 @@
         margin-top: -50px;
         align-items: flex-end;
     }
-
-
 
     @media screen and (max-width: 685px) {
         padding: 65px 20px 0 20px;

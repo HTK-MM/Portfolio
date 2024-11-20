@@ -1,9 +1,11 @@
 .container {
+    max-width: 1440px;
+    width: 100%;
+    justify-self: center;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 100px 100px 100px 100px;
-    background: linear-gradient(0deg, rgba(31, 11, 128, 1) 0%, rgba(11, 4, 47, 1) 100%);
+    padding: 100px 100px 100px 100px;   
     margin-top: -85px;
 
     @media screen and (max-width: 1200px) {

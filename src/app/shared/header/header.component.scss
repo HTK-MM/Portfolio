@@ -1,29 +1,33 @@
-header {
-    max-width: 1440px;
-    width: 100%;
-    justify-self: center;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-content: center;
-    align-items: center;
-    font-family: 'RobotoMono';
+.header {   
     background: linear-gradient(to bottom, rgba(11, 4, 45, 1)0%, rgba(11, 4, 45, 1)60%, rgba(11, 4, 45, 0)100%);
+    height: 95px;
     z-index: 99;
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    height: 95px;
+    margin: 0 auto;
+    width: 100vw;
+}
 
-    @media screen and (max-width: 1200px) {        
+.subheader {
+    max-width: 1440px;   
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;   
+    justify-self: center;
+    align-items: center;
+    font-family: 'RobotoMono';
+
+    @media screen and (max-width: 1200px) {
         height: 75px;
     }
 
-    @media screen and (max-width: 900px) {       
+    @media screen and (max-width: 900px) {
         height: 60px;
     }
-    
+
     @media screen and (max-width: 680px) {
         justify-content: space-between;
         flex-flow: row wrap;
@@ -34,8 +38,9 @@ header {
 .logo {
     display: flex;
     width: 60px;
-    align-self: center;
-    margin-left: 140px;
+    align-self: center;    
+    margin-left: 100px;
+    margin-right: 20px;
 
     @media screen and (max-width: 900px) {
         margin-right: 10px;
@@ -65,12 +70,12 @@ header {
 .container {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: space-between;   
     margin-right: 50px;
-    width: 95%;
+    width: 90%;
 
     @media screen and (max-width: 780px) {
-        width: 85%;    
+        width: 85%;
     }
 
     @media screen and (max-width: 680px) {
@@ -97,7 +102,7 @@ header {
             background-image: linear-gradient(#13074E 100%, #1D0A79 65%);
             border: 1px solid #1D0A79;
             transform: translateY(0);
-            transition: all 0.5s ease-in-out;           
+            transition: all 0.5s ease-in-out;
         }
     }
 
@@ -108,7 +113,7 @@ header {
         flex-flow: row nowrap;
         justify-content: flex-start;
         align-items: center;
-        padding: 0 20px 0 30px;
+        padding: 0 60px 0 30px;
 
         @media screen and (max-width:900px) {
             padding: 0 0 0 0;
@@ -121,7 +126,7 @@ header {
     }
 
     &__li {
-        margin: 0 .5em;
+        margin: 0 .2em;
         list-style-type: none;
 
         @media screen and (max-width:680px) {
@@ -213,21 +218,21 @@ header {
     width: 100%;
     justify-self: center;
     display: flex;
-    top: 0;  
+    top: 0;
     height: 95px;
     width: 100%;
-    background-color: #0B042D;   
+    background-color: #0B042D;
 
-    @media screen and (max-width: 1200px) {        
+    @media screen and (max-width: 1200px) {
         height: 75px;
     }
 
-    @media screen and (max-width: 900px) {       
+    @media screen and (max-width: 900px) {
         height: 60px;
     }
 
     @media screen and (max-width: 680px) {
         height: 55px;
-        
+
     }
 }
