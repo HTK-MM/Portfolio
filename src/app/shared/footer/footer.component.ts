@@ -16,8 +16,7 @@ export class FooterComponent {
 
   /**   * Send the route to the parent component through the sendRoute event emitter.
    * @param route the route to send.   */
-  sendLink(route: string) {
-    console.log('mi route', route);
+  sendLink(route: string) { 
     this.sendRoute.emit(route);
     this.onLinkClick();
   }

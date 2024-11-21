@@ -41,8 +41,7 @@ export class AppComponent implements OnInit {
     this.lang = language;    
     this.translateService.use(language);
   }
-  navigate(route: string) {    
-    console.log('mi route', route);
+  navigate(route: string) {       
     this._router.navigate(['/' + route]);    
   }
 

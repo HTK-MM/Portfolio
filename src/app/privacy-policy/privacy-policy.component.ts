@@ -25,7 +25,7 @@ export class PrivacyPolicyComponent implements OnInit{
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }  else {
-          console.warn(`No se encontró el elemento con id ${fragment}`);
+          console.warn(`element not found with id ${fragment}`);
         }
         this._router.navigate([], { fragment: '' }); 
       }     

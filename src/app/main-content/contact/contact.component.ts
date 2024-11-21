@@ -42,8 +42,7 @@ export class ContactComponent implements OnInit {
     });
 
     this.contactForm.statusChanges.subscribe(
-      status => {
-        console.log('mi status:', status);
+      status => {       
         this.formStatus = status;
       }
     )
@@ -80,7 +79,7 @@ export class ContactComponent implements OnInit {
         complete: () => console.info('send post complete'),
       });
 
-    console.log(this.contactForm);
+   
   }
 
   /**   * Returns true if the form control with the given `field` name has a validation error
